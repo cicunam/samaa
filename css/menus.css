@@ -1,0 +1,175 @@
+/* Menú principal */
+
+.MenuPrincipal {
+	width: 860px;
+	margin-top: 10px; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.MenuPrincipalItem {
+	float: left;
+	width: 280px;
+    height: 120px; /*140px */
+    margin: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d7d7d7;
+    
+}
+
+.MenuPrincipalItemTitulo {
+	position: relative;
+	top: 0;
+	width: auto;
+    height: 18px;
+    margin: 2px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: bold;
+    background-color: #7BA7D2;
+    color: #fff;
+}
+
+.MenuPrincipalItemTituloFechas {
+	position: relative;
+	top: 0;
+	width: auto;
+    height: 18px;
+    margin: 2px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: bold;
+    background-color: #336699;
+    color: #fff;
+}
+
+.MenuPrincipalItem:hover {
+	background-color: #fbfbfb;
+}
+
+.MenuPrincipalItemModulos {
+	width: inherit;
+    height: 98px; /* 116px */
+    padding-left: 20px;
+	padding-right: 20px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+	font-family:Verdana;
+    font-size: 8pt;
+}
+.MenuPrincipalItemModulos:hover {
+	background-color: #fbfbfb;	
+	font-family:Verdana;
+    font-size: 8pt;
+	color:#900;
+}
+
+.MenuPrincipalItemContenido {
+	width: inherit;
+    height: 100px; /* 116px */
+    padding-left: 25px;
+	padding-right: 25px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+	font-family:Verdana;
+    font-size: 8pt;
+}
+
+.MenuPrincipalItemContenido marquee {
+	height: 130px;
+}
+
+.MenuPrincipalModuloInactivo {
+	color: #990000;
+	text-decoration: line-through;
+}
+
+.MenuPrincipalItemCalendario {
+	float: left;
+	width: 423px;
+    height: 320px; /*140px */
+    margin: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d7d7d7;   
+}
+
+.MenuPrincipalItemGrisTitulo {
+	position: relative;
+	top: 0;
+	width: auto;
+    height: 18px;
+    margin: 2px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: bold;
+    background-color: #c8cbcf;
+    color: #000;
+}
+
+.MenuPrincipalItemOtros {
+	float: left;
+	width: 423px;
+    height: 157px; /*140px */
+    margin: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d7d7d7;   
+}
+
+/*
+.MenuPrincipalItemTituloSistema {
+	background-color: #6d7885;
+	color: #ffffff;
+}
+
+.MenuPrincipalItemTituloImportante {
+	background-color: #d95f67;
+	color: #ffffff;
+}
+
+.MenuPrincipalItemTituloResponsables {
+	background-color: #c8cbcf;
+	color: #6c747e;
+}
+
+.MenuPrincipalItemTituloOtro {
+	background-color: #363b41;
+	color: #ffffff;
+}
+
+
+.MenuPrincipalItemFechas {
+	width: 100%;
+	height: 90px;
+	padding-left: 20px;
+	padding-right: 20px;
+	vertical-align: middle;
+	text-align: center;
+	font-style: normal;
+}
+
+.MenuPrincipalTablaResponsables {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border: none;
+	border-spacing: 2px 2px;
+}
+
+.MenuPrincipalTablaResponsables td {
+	margin: 0;
+	padding: 0;
+	border: none;
+	vertical-align: middle;
+	font-size: 10px;
+}
+*/
+
+

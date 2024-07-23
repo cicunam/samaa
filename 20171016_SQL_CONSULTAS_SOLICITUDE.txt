@@ -1,0 +1,404 @@
+
+------ SOLICITUDES ENTIDADES ------
+	SELECT * FROM consulta_solicitudes_entidades
+	T1.sol_id, T1.sol_pos1, T1.sol_pos2, T1.mov_clave, sol_pos14,
+	T2.acd_apepat, T2.acd_apemat, T2.acd_nombres,
+	C1.mov_titulo_corto, C1.mov_ruta,
+	C2.dep_siglas    
+	FROM ((movimientos_solicitud AS T1
+	LEFT JOIN academicos AS T2 ON T1.sol_pos2 = T2.acd_id)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.sol_pos1 = C2.dep_clave <!---CATALOGOS GENERALES MYSQL --->
+	WHERE sol_status > 3 <!--- Solicitudes en la Entidad --->
+	<!--- Filtro por tipo de movimiento --->
+	<cfif #Session.AsuntosEntidadFiltro.vFt# NEQ 0>
+		AND 
+        <cfif #Session.AsuntosEntidadFiltro.vFt# EQ 100>
+			(T1.mov_clave <> 40 AND T1.mov_clave <> 41)
+        <cfelseif #Session.AsuntosEntidadFiltro.vFt# EQ 101>
+			(T1.mov_clave = 40 OR T1.mov_clave = 41)
+        <cfelse>
+			T1.mov_clave = #Session.AsuntosEntidadFiltro.vFt#
+        </cfif>
+	</cfif>
+	<!--- Filtro por académico --->
+	<cfif #vAcadNom# IS NOT ''>AND ISNULL(dbo.SINACENTOS(acd_apepat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_apemat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_nombres),'') LIKE '%#NombreSinAcentos(vAcadNom)#%'</cfif>
+	<!--- Filtro por dependencia --->
+	<cfif #vDepId# IS NOT ''>AND sol_pos1 = '#vDepId#'</cfif>
+	<!--- Filtro por número de solicitud --->
+	<cfif #vNumSol# IS NOT ''>AND sol_id = #vNumSol#</cfif>
+	<!--- Ordenamiento --->
+	<cfif #vOrden# IS NOT ''> ORDER BY #vOrden# </cfif><cfif #vOrdenDir# IS NOT ''> #vOrdenDir#</cfif>
+****************************************************************************************************************
+------ SOLICITUDES RECIBIDAS ------
+SELECT
+    T1.sol_id, T1.sol_pos1, T1.sol_pos2, T1.mov_clave, T1.sol_pos14, T1.sol_status,
+    T2.acd_apepat, T2.acd_apemat, T2.acd_nombres,
+	C1.mov_titulo_corto, C1.mov_ruta,
+    C2.dep_siglas
+    FROM ((movimientos_solicitud AS T1
+	LEFT JOIN academicos AS T2 ON T1.sol_pos2 = T2.acd_id)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.sol_pos1 = C2.dep_clave <!---CATALOGOS GENERALES MYSQL --->
+	WHERE sol_status = 3 <!--- Solicitudes enviadas --->
+	AND ISNULL(sol_retirada,0) = 0
+	<!--- Filtro por tipo de movimiento --->
+	<cfif #Session.AsuntosRevisionFiltro.vFt# NEQ 0>
+		AND 
+        <cfif #Session.AsuntosRevisionFiltro.vFt# EQ 100>
+			(T1.mov_clave <> 40 AND T1.mov_clave <> 41)
+        <cfelseif #Session.AsuntosRevisionFiltro.vFt# EQ 101>
+			(T1.mov_clave = 40 OR T1.mov_clave = 41)
+        <cfelse>
+			T1.mov_clave = #Session.AsuntosRevisionFiltro.vFt#
+        </cfif>
+	</cfif>
+	<!--- Filtro por académico --->
+	<cfif #vAcadNom# IS NOT ''>AND ISNULL(dbo.SINACENTOS(acd_apepat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_apemat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_nombres),'') LIKE '%#NombreSinAcentos(vAcadNom)#%'</cfif>
+	<!--- Filtro por dependencia --->
+	<cfif #Session.sTipoSistema# IS 'sic'>
+		AND sol_pos1 = '#Session.sIdDep#'
+	<cfelse>
+		<cfif #vDepId# IS NOT ''>AND sol_pos1 = '#vDepId#'</cfif>
+	</cfif>
+	<!--- Filtro por número de solicitud --->
+	<cfif #vNumSol# IS NOT ''>AND sol_id = #vNumSol#</cfif>
+	<!--- Ordenamiento --->
+	<cfif #vOrden# IS NOT ''> ORDER BY #vOrden# </cfif><cfif #vOrdenDir# IS NOT ''> #vOrdenDir#</cfif>
+****************************************************************************************************************
+------ SOLICITUDES CAAA ------
+<!--- NOTA: Es necesario dividir la consulta SQL en tres para ordenar de manera distinta la Sección III --->	
+<!--- Secciones anteriores a la SECCIÓN 3 (orden normal)
+
+	SELECT 
+    T1.sol_id, T1.sol_pos1, T1.sol_pos2, T1.mov_clave, T1.sol_pos12, T1.sol_pos14, T1.sol_devuelve_edita, T1.sol_devuelve_archivo, T1.sol_status,
+    T2.asu_numero, T2.asu_parte,
+    T3.acd_apepat, T3.acd_apemat, T3.acd_nombres,
+	C1.mov_titulo_corto, C1.mov_ruta,
+    C2.dep_siglas, C2.dep_orden
+	,
+	'AAA' AS clase_academico 
+    FROM ((((movimientos_solicitud AS T1 
+	LEFT JOIN movimientos_asunto AS T2 ON T1.sol_id = T2.sol_id)
+	LEFT JOIN academicos AS T3 ON T1.sol_pos2 = T3.acd_id)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.sol_pos1 = C2.dep_clave) <!---CATALOGOS GENERALES MYSQL --->
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_cn')# AS C3 ON C3.cn_clave = ISNULL(T1.sol_pos8, T1.sol_pos3) <!---CATALOGOS GENERALES MYSQL --->
+	WHERE sol_status = 2 <!--- Asuntos que pasan a la CAAA --->
+	AND T2.asu_reunion = 'CAAA' <!--- Registro de asunto CAAA --->
+	AND T2.asu_parte < 3 <!--- Secciones anteriores a la Sección 3 --->
+	AND T2.asu_parte <> 0 <!--- Excluir los asuntos que no pasan a las reuniones CAAA/CTIC --->
+	AND T2.dec_clave IS NULL <!--- Solo desplegar asuntos sin recomendación, para que no aparezcan los pendientes de la siguiente sesión --->
+	<!--- Filtro por tipo de movimiento --->
+	<cfif #Session.AsuntosCAAAFiltro.vFt# NEQ 0>
+		AND T1.mov_clave = #Session.AsuntosCAAAFiltro.vFt#
+	</cfif>
+	<!--- Filtro por acta --->
+	<cfif #vActa# IS NOT ''>AND T2.ssn_id = #vActa#</cfif>
+	<!--- Filtro por sección --->
+	<cfif #vSeccion# IS NOT ''>AND T2.asu_parte = #vSeccion#</cfif>
+	<!--- Filtro por dependencia --->
+	<cfif #vDepId# IS NOT ''>AND sol_pos1 = '#vDepId#'</cfif>
+	<!--- Filtro por académico --->
+	<cfif #vAcadNom# IS NOT ''>AND ISNULL(dbo.SINACENTOS(acd_apepat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_apemat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_nombres),'') LIKE '%#NombreSinAcentos(vAcadNom)#%'</cfif>
+	<!--- Filtro por número de solicitud --->
+	<cfif #vNumSol# IS NOT ''>AND T1.sol_id = #vNumSol#</cfif>
+	UNION
+
+	<!--- SECCIÓN 3 (orden especial) --->
+
+	SELECT 
+    T1.sol_id, T1.sol_pos1, T1.sol_pos2, T1.mov_clave, T1.sol_pos12, T1.sol_pos14, T1.sol_devuelve_edita, T1.sol_devuelve_archivo, T1.sol_status,
+    T2.asu_numero, T2.asu_parte,
+    T3.acd_apepat, T3.acd_apemat, T3.acd_nombres,
+	C1.mov_titulo_corto, C1.mov_ruta,
+    C2.dep_siglas, C2.dep_orden
+	,
+    LEFT(C3.cn_siglas, 3) AS clase_academico 
+    FROM ((((movimientos_solicitud AS T1
+	LEFT JOIN movimientos_asunto AS T2 ON T1.sol_id = T2.sol_id)
+	LEFT JOIN academicos AS T3 ON T1.sol_pos2 = T3.acd_id)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.sol_pos1 = C2.dep_clave) <!---CATALOGOS GENERALES MYSQL --->
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_cn')# AS C3 ON C3.cn_clave = ISNULL(T1.sol_pos8, T1.sol_pos3) <!---CATALOGOS GENERALES MYSQL --->
+	WHERE sol_status = 2 <!--- Asuntos que pasan a la CAAA --->
+	AND T2.asu_reunion = 'CAAA' <!--- Registro de asunto CAAA --->
+	AND (T2.asu_parte >= 3 AND T2.asu_parte < 4) <!--- Sección 3 --->
+	AND T2.dec_clave IS NULL <!--- Solo desplegar asuntos sin recomendación, para que no aparezcan los pendientes de la siguiente sesión --->
+	<!--- Filtro por tipo de movimiento --->
+	<cfif #Session.AsuntosCAAAFiltro.vFt# NEQ 0>
+		AND T1.mov_clave = #Session.AsuntosCAAAFiltro.vFt#
+	</cfif>
+	<!--- Filtro por acta --->
+	<cfif #vActa# IS NOT ''>AND T2.ssn_id = #vActa#</cfif>
+	<!--- Filtro por sección --->
+	<cfif #vSeccion# IS NOT ''>AND T2.asu_parte = #vSeccion#</cfif>
+	<!--- Filtro por dependencia --->
+	<cfif #vDepId# IS NOT ''>AND sol_pos1 = '#vDepId#'</cfif>
+	<!--- Filtro por académico --->
+	<cfif #vAcadNom# IS NOT ''>AND ISNULL(dbo.SINACENTOS(acd_apepat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_apemat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_nombres),'') LIKE '%#NombreSinAcentos(vAcadNom)#%'</cfif>
+	<!--- Filtro por número de solicitud --->
+	<cfif #vNumSol# IS NOT ''>AND T1.sol_id = #vNumSol#</cfif>	
+	UNION
+	
+	<!--- Secciones posteriores a la SECCIÓN 3 (nuevamente orden normal) --->
+	
+	SELECT 
+    T1.sol_id, T1.sol_pos1, T1.sol_pos2, T1.mov_clave, T1.sol_pos12, T1.sol_pos14, T1.sol_devuelve_edita, T1.sol_devuelve_archivo, T1.sol_status,
+    T2.asu_numero, T2.asu_parte,
+    T3.acd_apepat, T3.acd_apemat, T3.acd_nombres,
+	C1.mov_titulo_corto, C1.mov_ruta,
+    C2.dep_siglas, C2.dep_orden
+    ,
+    'AAA' AS clase_academico
+    FROM ((((movimientos_solicitud AS T1
+	LEFT JOIN movimientos_asunto AS T2 ON T1.sol_id = T2.sol_id)
+	LEFT JOIN academicos AS T3 ON T1.sol_pos2 = T3.acd_id)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.sol_pos1 = C2.dep_clave) <!---CATALOGOS GENERALES MYSQL --->
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_cn')# AS C3 ON C3.cn_clave = ISNULL(T1.sol_pos8, T1.sol_pos3) <!---CATALOGOS GENERALES MYSQL --->
+	WHERE sol_status = 2 <!--- Asuntos que pasan a la CAAA --->
+	AND T2.asu_reunion = 'CAAA' <!--- Registro de asunto CAAA --->
+	AND T2.asu_parte >= 4 <!--- Secciones posteriores a la Sección 3 --->
+	AND T2.dec_clave IS NULL <!--- Solo desplegar asuntos sin recomendación, para que no aparezcan los pendientes de la siguiente sesión --->
+	<!--- Filtro por tipo de movimiento --->
+	<cfif #Session.AsuntosCAAAFiltro.vFt# NEQ 0>
+		AND T1.mov_clave = #Session.AsuntosCAAAFiltro.vFt#
+	</cfif>
+	<!--- Filtro por acta --->
+	<cfif #vActa# IS NOT ''>AND T2.ssn_id = #vActa#</cfif>
+	<!--- Filtro por sección --->
+	<cfif #vSeccion# IS NOT ''>AND T2.asu_parte = #vSeccion#</cfif>
+	<!--- Filtro por dependencia --->
+	<cfif #vDepId# IS NOT ''>AND sol_pos1 = '#vDepId#'</cfif>
+	<!--- Filtro por académico --->
+	<cfif #vAcadNom# IS NOT ''>AND ISNULL(dbo.SINACENTOS(acd_apepat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_apemat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_nombres),'') LIKE '%#NombreSinAcentos(vAcadNom)#%'</cfif>
+	<!--- Filtro por número de solicitud --->
+	<cfif #vNumSol# IS NOT ''>AND T1.sol_id = #vNumSol#</cfif>
+    
+	<!--- Orden aplicado a las tres consultas --->
+	
+	ORDER BY 
+	T2.asu_parte,
+	clase_academico, <!--- Campo clave para ordenar de manera distinata la SECCIÓN 3 --->
+	T2.asu_numero,
+	C2.dep_orden,
+	T3.acd_apepat,
+	T3.acd_apemat,
+	T3.acd_nombres,
+	T1.sol_pos14
+****************************************************************************************************************
+------ SOLICITUDES PLENO CTIC ------
+
+<!--- NOTA: Es necesario dividir la consulta SQL en tres para ordenar de manera distinta la Sección III --->
+<!--- Secciones anteriores a la SECCIÓN 3 (orden normal) --->
+	SELECT
+    T1.sol_id, T1.sol_pos1, T1.sol_pos2, T1.mov_clave, T1.sol_pos12, T1.sol_pos14, T1.sol_devuelve_edita, T1.sol_devuelve_archivo,
+    T2.asu_numero, T2.asu_parte, T2.asu_oficio, T2.asu_reunion, T2.asu_parte,
+    T3.acd_apepat, T3.acd_apemat, T3.acd_nombres,
+	C1.mov_titulo_corto, C1.mov_ruta,
+    C2.dep_siglas, C2.dep_orden
+	,
+	'AAA' AS clase_academico
+	FROM ((((movimientos_solicitud AS T1
+	LEFT JOIN movimientos_asunto AS T2 ON T1.sol_id = T2.sol_id)
+	LEFT JOIN academicos AS T3 ON T1.sol_pos2 = T3.acd_id)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.sol_pos1 = C2.dep_clave) <!---CATALOGOS GENERALES MYSQL --->
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_cn')# AS C3 ON C3.cn_clave = ISNULL(T1.sol_pos8, T1.sol_pos3) <!---CATALOGOS GENERALES MYSQL --->
+	WHERE sol_status <= 1  <!--- Se adecuó para no desplegar los asuntos objetados que están en el pleno en la siguiente sesión ---> <!--- SE REMPLAZÓ ESTE CÓDIGO PO UNO MAS SENCILLO (sol_status = 0 OR (sol_status = 1 AND dec_clave IS NULL))--->
+	AND T2.asu_reunion = 'CTIC'
+	AND T2.asu_parte < 3 <!--- Secciones anteriores a la Sección 3 --->
+	<!--- Filtro por académico --->
+	<cfif #vAcadNom# IS NOT ''>AND ISNULL(dbo.SINACENTOS(acd_apepat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_apemat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_nombres),'') LIKE '%#NombreSinAcentos(vAcadNom)#%'</cfif>
+	<!--- Filtro por acta --->
+	<cfif #vActa# IS NOT ''>AND T2.ssn_id = #vActa#</cfif>
+	<!--- Filtro por sección --->
+	<cfif #vSeccion# IS NOT ''>AND T2.asu_parte = #vSeccion#<cfelse>AND T2.asu_parte <> 0 <!--- Excluir los asuntos que no pasan a las reuniones CAAA/CTIC ---></cfif>
+	<!--- Filtro por dependencia --->
+	<cfif #vDepId# IS NOT ''>AND sol_pos1 = '#vDepId#'</cfif>
+	<!--- Filtro por tipo de movimiento --->
+	<cfif #Session.AsuntosCTICFiltro.vFt# NEQ 0>
+		AND
+		<cfif #Session.AsuntosCTICFiltro.vFt# IS 100>
+			(T1.mov_clave <> 40 AND T1.mov_clave <> 41)
+		<cfelseif #Session.AsuntosCTICFiltro.vFt# IS 101>
+			(T1.mov_clave = 40 OR T1.mov_clave = 41)	
+		<cfelse>
+			T1.mov_clave = #Session.AsuntosCTICFiltro.vFt#
+		</cfif>	
+	</cfif>
+	<!--- Filtro por número de solicitud --->
+	<cfif #vNumSol# IS NOT ''>AND T1.sol_id = #vNumSol#</cfif>
+    
+	UNION
+	
+	<!--- SECCIÓN 3 (orden especial) --->
+
+	SELECT
+    T1.sol_id, T1.sol_pos1, T1.sol_pos2, T1.mov_clave, T1.sol_pos12, T1.sol_pos14, T1.sol_devuelve_edita, T1.sol_devuelve_archivo,
+    T2.asu_numero, T2.asu_parte, T2.asu_oficio, T2.asu_reunion, T2.asu_parte,
+    T3.acd_apepat, T3.acd_apemat, T3.acd_nombres,
+	C1.mov_titulo_corto, C1.mov_ruta,
+    C2.dep_siglas, C2.dep_orden
+	,
+	LEFT(C3.cn_siglas, 3) AS clase_academico
+	FROM ((((movimientos_solicitud AS T1
+	LEFT JOIN movimientos_asunto AS T2 ON T1.sol_id = T2.sol_id)
+	LEFT JOIN academicos AS T3 ON T1.sol_pos2 = T3.acd_id)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.sol_pos1 = C2.dep_clave) <!---CATALOGOS GENERALES MYSQL --->
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_cn')# AS C3 ON C3.cn_clave = ISNULL(T1.sol_pos8, T1.sol_pos3) <!---CATALOGOS GENERALES MYSQL --->
+	WHERE sol_status <= 1  <!--- Se adecuó para no desplegar los asuntos objetados que están en el pleno en la siguiente sesión ---> <!--- SE REMPLAZÓ ESTE CÓDIGO PO UNO MAS SENCILLO (sol_status = 0 OR (sol_status = 1 AND dec_clave IS NULL))--->
+	AND T2.asu_reunion = 'CTIC'
+	AND (T2.asu_parte >= 3 AND T2.asu_parte < 4) <!--- Sección 3 --->
+	<!--- Filtro por académico --->
+	<cfif #vAcadNom# IS NOT ''>AND ISNULL(dbo.SINACENTOS(acd_apepat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_apemat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_nombres),'') LIKE '%#NombreSinAcentos(vAcadNom)#%'</cfif>
+	<!--- Filtro por acta --->
+	<cfif #vActa# IS NOT ''>AND T2.ssn_id = #vActa#</cfif>
+	<!--- Filtro por sección --->
+	<cfif #vSeccion# IS NOT ''>AND T2.asu_parte = #vSeccion#</cfif>
+	<!--- Filtro por dependencia --->
+	<cfif #vDepId# IS NOT ''>AND sol_pos1 = '#vDepId#'</cfif>
+	<!--- Filtro por tipo de movimiento --->
+	<cfif #Session.AsuntosCTICFiltro.vFt# NEQ 0>
+		AND
+		<cfif #Session.AsuntosCTICFiltro.vFt# IS 100>
+			(T1.mov_clave <> 40 AND T1.mov_clave <> 41)
+		<cfelseif #Session.AsuntosCTICFiltro.vFt# IS 101>
+			(T1.mov_clave = 40 OR T1.mov_clave = 41)	
+		<cfelse>
+			T1.mov_clave = #Session.AsuntosCTICFiltro.vFt#
+		</cfif>	
+	</cfif>	
+	<!--- Filtro por número de solicitud --->
+	<cfif #vNumSol# IS NOT ''>AND T1.sol_id = #vNumSol#</cfif>
+	
+	UNION
+	
+	<!--- Secciones posteriores a la SECCIÓN 3 (nuevamente orden normal) --->
+	
+	SELECT
+    T1.sol_id, T1.sol_pos1, T1.sol_pos2, T1.mov_clave, T1.sol_pos12, T1.sol_pos14, T1.sol_devuelve_edita, T1.sol_devuelve_archivo,
+    T2.asu_numero, T2.asu_parte, T2.asu_oficio, T2.asu_reunion, T2.asu_parte,
+    T3.acd_apepat, T3.acd_apemat, T3.acd_nombres,
+	C1.mov_titulo_corto, C1.mov_ruta,
+    C2.dep_siglas, C2.dep_orden
+	,
+	'AAA' AS clase_academico 
+	FROM ((((movimientos_solicitud AS T1
+	LEFT JOIN movimientos_asunto AS T2 ON T1.sol_id = T2.sol_id)
+	LEFT JOIN academicos AS T3 ON T1.sol_pos2 = T3.acd_id)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.sol_pos1 = C2.dep_clave) <!---CATALOGOS GENERALES MYSQL --->
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_cn')# AS C3 ON C3.cn_clave = ISNULL(T1.sol_pos8, T1.sol_pos3) <!---CATALOGOS GENERALES MYSQL --->
+	WHERE sol_status <= 1    <!--- Se adecuó para no desplegar los asuntos objetados que están en el pleno en la siguiente sesión  ---><!--- (sol_status = 0 OR (sol_status = 1 AND dec_clave IS NULL))--->
+	AND T2.asu_reunion = 'CTIC'
+	AND T2.asu_parte >= 4 <!--- Secciones posteriores a la Sección 3 --->
+	<!--- Filtro por académico --->
+	<cfif #vAcadNom# IS NOT ''>AND ISNULL(dbo.SINACENTOS(acd_apepat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_apemat),'') + ' ' + ISNULL(dbo.SINACENTOS(acd_nombres),'') LIKE '%#NombreSinAcentos(vAcadNom)#%'</cfif>
+	<!--- Filtro por acta --->
+	<cfif #vActa# IS NOT ''>AND T2.ssn_id = #vActa#</cfif>
+	<!--- Filtro por sección --->
+	<cfif #vSeccion# IS NOT ''>AND T2.asu_parte = #vSeccion#</cfif>
+	<!--- Filtro por dependencia --->
+	<cfif #vDepId# IS NOT ''>AND sol_pos1 = '#vDepId#'</cfif>
+	<!--- Filtro por tipo de movimiento --->
+	<cfif #Session.AsuntosCTICFiltro.vFt# NEQ 0>
+		AND
+		<cfif #Session.AsuntosCTICFiltro.vFt# IS 100>
+			(T1.mov_clave <> 40 AND T1.mov_clave <> 41)
+		<cfelseif #Session.AsuntosCTICFiltro.vFt# IS 101>
+			(T1.mov_clave = 40 OR T1.mov_clave = 41)	
+		<cfelse>
+			T1.mov_clave = #Session.AsuntosCTICFiltro.vFt#
+		</cfif>	
+	</cfif>
+	<!--- Filtro por número de solicitud --->
+	<cfif #vNumSol# IS NOT ''>AND T1.sol_id = #vNumSol#</cfif>
+	
+	<!--- Orden aplicado a las tres consultas --->
+	
+	ORDER BY 
+	T2.asu_parte,
+	clase_academico, <!--- Campo clave para ordenar de manera distinata la SECCIÓN 3 --->
+	T2.asu_numero,
+	C2.dep_orden,
+	T3.acd_apepat,
+	T3.acd_apemat,
+	T3.acd_nombres,
+	T1.sol_pos14
+
+
+****************************************************************************************************************
+------ MOVIMIENTOS POR ACADÉMICO ------
+	SELECT DISTINCT
+	T1.mov_id, T1.sol_id, T1.acd_id, T1.mov_clave, T1.mov_dep_clave, T1.mov_numero, T1.mov_fecha_inicio, T1.mov_fecha_final, T1.mov_cancelado, T1.mov_modificado,
+	T2.acd_id,
+	T4.coa_id AS coa_acd_id,
+	T4.coa_ganador,
+	T3.ssn_id, T3.asu_oficio,
+	C1.mov_titulo, C1.mov_titulo_corto,
+	C2.dep_siglas, C2.dep_nombre,
+	C3.dec_super,
+	C4.cn_siglas
+	FROM
+	(((((( movimientos AS T1
+	LEFT JOIN academicos AS T2 ON T1.acd_id = T2.acd_id)
+	LEFT JOIN movimientos_asunto AS T3 ON T1.sol_id = T3.sol_id AND (T3.ssn_id = (SELECT MAX(ssn_id) FROM movimientos_asunto WHERE sol_id = T1.sol_id) OR T3.ssn_id IS NULL))<!--- IMPORTANTE: Obtener el registro más reciente de la tabla de asuntos --->
+	LEFT JOIN convocatorias_coa_concursa AS T4 ON T1.coa_id = T4.coa_id AND T4.acd_id = #vIdAcad#)
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave)
+	LEFT JOIN catalogo_decision AS C3 ON T3.dec_clave = C3.dec_clave)
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.dep_clave = C2.dep_clave) <!---CATALOGOS GENERALES MYSQL --->
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_cn')# AS C4 ON CASE WHEN T1.mov_cn_clave IS NULL THEN T1.cn_clave ELSE T1.mov_cn_clave END = C4.cn_clave <!---CATALOGOS GENERALES MYSQL --->
+	WHERE asu_reunion = 'CTIC'
+	AND (T1.acd_id = #vIdAcad# OR T4.acd_id = #vIdAcad#)
+	<!--- Filtro por tipo de movimiento --->
+	<cfif IsDefined('vFt') AND #vFt# NEQ 0>
+	 	<cfif #vFt# EQ 100>
+			AND (T1.mov_clave <> 40 AND T1.mov_clave <> 41)
+        <cfelseif #vFt# EQ 101>
+			AND (T1.mov_clave = 40 OR T1.mov_clave = 41)
+        <cfelse>
+			AND T1.mov_clave = #vFt#
+		</cfif>
+	</cfif>
+	<!--- Filtro por año de movimiento --->
+    <cfif IsDefined("vAniosMov") AND #vAniosMov# GT 0>
+    	AND YEAR(T1.mov_fecha_inicio) = #vAniosMov#
+    </cfif>
+	<!--- Ordenamiento --->
+	<cfif #vOrden# IS NOT ''>ORDER BY #vOrden#</cfif><cfif #vOrdenDir# IS NOT ''> #vOrdenDir#</cfif>
+****************************************************************************************************************
+------ MOVIMIENTOS POR VENCER ------
+	SELECT DISTINCT 
+    T1.mov_id, T1.sol_id, T1.mov_dep_clave, T1.acd_id, T1.mov_clave, T1.mov_numero, T1.mov_fecha_inicio, T1.mov_fecha_final, T1.coa_id, T1.mov_cancelado, T1.mov_modificado,
+	T2.acd_id, T2.acd_apepat, T2.acd_nombres,
+	C1.mov_titulo_corto,
+	C4.cn_siglas,
+	C2.dep_siglas,
+	C3.dec_super,
+    T3.*
+    FROM (((((movimientos AS T1
+	LEFT JOIN academicos AS T2 ON T1.acd_id = T2.acd_id)
+	LEFT JOIN movimientos_asunto AS T3 ON T1.sol_id = T3.sol_id AND T3.ssn_id = (SELECT MAX(ssn_id) FROM movimientos_asunto WHERE sol_id = T1.sol_id))<!--- IMPORTANTE: Obtener el registro más reciente de la tabla de asuntos --->
+	LEFT JOIN catalogo_movimiento AS C1 ON T1.mov_clave = C1.mov_clave) 
+	LEFT JOIN catalogo_decision AS C3 ON T3.dec_clave = C3.dec_clave)
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_dependencias')# AS C2 ON T1.dep_clave = C2.dep_clave) <!---CATALOGOS GENERALES MYSQL --->
+	LEFT JOIN #MYSQL('CATALOGOS', 'catalogo_cn')# AS C4 ON CASE WHEN T1.mov_cn_clave IS NULL THEN T1.cn_clave ELSE T1.mov_cn_clave END = C4.cn_clave <!---CATALOGOS GENERALES MYSQL --->
+	WHERE asu_reunion = 'CTIC'
+	AND (T2.con_clave = 2 OR T2.con_clave = 3 OR T2.con_clave = 6)
+	AND (T1.mov_clave = 5 OR T1.mov_clave = 6 OR T1.mov_clave = 25 OR T1.mov_clave = 38) 
+	AND (T1.mov_fecha_final > '#vFechaActual#' AND T1.mov_fecha_final < '#vFechaPosterior#')
+	AND C3.dec_super = 'AP'
+	AND T1.mov_cancelado IS NULL
+	<cfif #vAcadNom# NEQ ''>AND acd_apepat + ' ' + acd_apepat + ' ' + acd_nombres LIKE '%#vAcadNom#%'</cfif>
+	<cfif #vCn# NEQ ''>AND T1.mov_cn_clave = '#vCn#'</cfif>
+	<cfif #vFt# NEQ 0>AND T1.mov_clave = #vFt#</cfif>
+	<cfif #Session.sTipoSistema# IS 'sic'>
+		AND T1.dep_clave LIKE '#Left(Session.sIdDep,4)#%'
+	<cfelseif #vDep# NEQ '0'>
+		AND T1.dep_clave LIKE '#Left(vDep,4)#%'
+	</cfif>
+	<!--- Ordenamiento --->
+	<cfif #vOrden# IS NOT ''> ORDER BY #vOrden# </cfif><cfif #vOrdenDir# IS NOT ''> #vOrdenDir#</cfif>

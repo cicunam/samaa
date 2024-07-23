@@ -1,0 +1,282 @@
+/*
+Estilos generales
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	/* Fuente predeterminada */
+	font-family: sans-serif;  
+	font-size: 8px; 
+	color: #000000; 
+	font-weight: normal;
+	height: auto;
+}
+
+body.MenuPrincipal {
+	
+	padding: 0 10px;
+}
+
+table, tr, td
+{
+	/* Fuente predeterminada */
+	font-family: sans-serif;  
+	font-size: 9px; 
+	color: #000000; 
+	font-weight: normal;
+}
+
+/* Ligas con efecto */
+
+a {
+	border: none;
+	color: #000000;
+	text-decoration: none;
+}
+
+a:link {
+	border: none;
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	border: none;
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	border: none;
+	color: #990000;
+	text-decoration: underline;
+}
+
+img {
+	border: none;
+}
+
+/* Contenido */
+
+/*
+div.Contenido {
+	
+	margin: 0;
+	padding: 0;
+}
+*/
+
+/* Menú del encabezado */
+
+.MenuEncabezado {
+	padding: 0px;
+	width: 100%;
+	border-spacing: 0px;
+}
+
+.MenuEncabezado td {
+	vertical-align: middle;
+}
+
+.MenuEncabezadoBoton {
+	height: 25px;
+	border: none;
+	border-right-style:solid;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	background-color: #88a9cf;
+	color: #ffffff;
+	text-align: center;
+	font-family: sans-serif;  
+	font-size: 11px; 
+	font-weight: normal;
+	line-height: 25px;
+	cursor: pointer;
+}
+
+.MenuEncabezadoBotonSeleccionado {
+	height: 25px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #88a9cf; /*#ffffff;*/
+	background-color: #D5E0EE; /*#FAFAFA;*/
+	text-align: center;
+	vertical-align: middle;
+	font-family: sans-serif;  
+	font-size: 11px; 
+	font-weight:bold;
+	line-height: 23px;
+	cursor: pointer;
+}
+
+.MenuEncabezadoBotonMenu {
+	padding-right: 12px;
+	height: 25px;
+	width: 320px;
+	vertical-align: top;
+	color: #000000;
+	text-align: right;
+	font-family: sans-serif;  
+	font-size: 11px; 
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.MenuEncabezadoBotonMenu a {
+	margin-left: 3px;
+	margin-right: 3px;
+	cursor: pointer;
+}	
+
+.MenuEncabezadoBoton:hover {
+	text-decoration: underline;
+	color: #ffffff;
+}
+
+.MenuBusqueda {
+	height: 25px;
+	border: none;
+	text-align: center;
+	font-family: Arial;  
+	font-size: 10px; 
+	font-weight:bold;
+	margin-top:2px;
+/*	border-right-style:solid;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	background-color: #88a9cf;
+	color: #ffffff;
+
+	line-height: 25px;
+	cursor: pointer;
+*/
+
+}
+
+/* Sub menús */
+
+.SubMenuBoton {
+	border-width: thin;
+	border-style: solid;
+	border-color: #FFFFFF;
+	font-family:  sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #CCCCCC;
+	color: #990000;
+	text-align: center;
+	cursor: pointer;
+	line-height: 18px; 
+	}
+
+.SubMenuBotonSel {
+	border-width: thin;
+	border-style:solid;
+	border-color: #CCCCCC;
+	font-family:  sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #FFFFFF;
+	color: #990000;
+	text-align: center;
+	cursor: pointer;
+	line-height: 18px;
+	}
+
+
+/* ... */
+
+/*
+.UsuarioActivo {
+	padding-left: 5px;
+	height: 14px;
+	background-color: #7BA7D2;
+	
+}
+*/
+
+.UsuarioActivo {
+	height: 14px;
+	padding-left: 5px;
+	background-color: #7BA7D2;
+	text-align: left;
+	vertical-align: middle;
+	font-weight: normal; 
+}
+
+.CerrarSistema {
+	margin: 0px;
+	width: 80px;
+	height: 14px;
+	background-color: #FF0000;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: normal; 
+}
+
+.CerrarSistema a {
+	font-family: sans-serif;
+	font-size: 8px; 
+	line-height: 14px;
+	color: #000000; 
+	text-decoration: none; 
+}
+
+.CerrarSistema a:hover {
+	color: yellow;
+}
+
+/* Menú principal */
+
+.MenuTituloAzul {
+	border: 1px solid #336699;
+	background-color: #7BA7D2;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.MenuTituloAzulM {
+	border: 1px solid #000000;
+	background-color: #336699;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.MenuContenido {
+	padding: 20px 10px 20px 10px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #336699;
+}
+
+.MenuContenido a {
+	font-family: sans-serif;
+	font-size: 11px; 
+	color: #000000; 
+	font-weight: normal;
+	text-decoration: none;
+	cursor: pointer;
+}
+.MenuContenido a:hover {
+	font-family: sans-serif;
+	font-size: 11px; 
+	color: #0000FF; 
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+/* Cintillo de información */
+
+.Cintillo {
+	margin: 10px 0px 5px 0px;
+	width: 1004px;
+	border-style: none;
+	background-color: #FAFAFA; 
+}
+
+.Cintillo td {
+	padding: 0px 5px 0px 5px;
+}

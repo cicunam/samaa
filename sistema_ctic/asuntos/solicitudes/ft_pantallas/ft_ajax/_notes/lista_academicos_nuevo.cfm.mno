@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_tbNacionalidad" value="name:catpais_cod;datatype:,name:catpais_pais;datatype:,name:catpais_nacionalidad;datatype:" />
+</info>

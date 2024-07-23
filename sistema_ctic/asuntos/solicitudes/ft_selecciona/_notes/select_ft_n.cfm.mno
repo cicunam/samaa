@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<info>
+	<infoitem key="UD_mov" value="name:num;datatype:,name:titulo;datatype:,name:noft;datatype:,name:pantalla;datatype:,name:ruta;datatype:,name:ruta_consulta;datatype:,name:ruta_edita;datatype:" />
+</info>

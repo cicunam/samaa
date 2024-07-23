@@ -1,0 +1,108 @@
+.textos {
+	font-family: sans-serif;
+	font-size: 7pt;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #333333;
+	background-color: #FFFFFF;
+	border: 1px solid #003399;
+}
+
+.textosBusqueda {
+	font-family: Arial;
+	font-size: 8pt;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #333333;
+	background-color: #FFFFFF;
+	border: 1px solid #003399;
+	border-style:outset;
+	border-color:#999;
+	column-fill:auto;
+	border-radius: 6px;
+	
+}
+
+#txtBuscaSol::-webkit-input-placeholder { 
+	color:#999;
+	font-style:italic;
+}
+
+.botones {
+	font-family: sans-serif;
+	font-size: 7pt;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;111
+	background-color: #CCCCCC;
+	border: 1px solid #333333;
+}
+.Cuadros {
+	margin: 5px;
+	border: 1px solid #FF9900;
+}
+.CuadrosBlanco {
+	border: 1px solid #FFFFFF;
+}
+.CuadrosMarron {
+	border: 1px solid #993300;
+}
+.CuadrosAzul {
+	border: 1px solid #336699;
+}
+.CuadrosBotonAmarillo {
+	border: 1px solid #993300;
+	background-color: #FFD52B;
+	text-align: center;
+	cursor: pointer;
+	vertical-align: middle;
+}
+.CuadrosBotonAzul {
+	border: 1px solid #336699;
+	background-color: #7BA7D2;
+	text-align: center;
+	cursor: pointer;
+	vertical-align: middle;
+}
+/*
+.CuadrosBotonAzul span:hover {
+	text-decoration: underline;
+}
+*/
+.CuadrosBotonAzulM {
+	border: 1px solid #000000;
+	background-color: #336699;
+}
+.CuadrosBotonGris {
+	border: 1px solid #000000;
+	background-color: #CCCCCC;
+	text-align: center;
+	cursor: pointer;
+}
+.CuadrosBotonGrisMenu {
+	border: 1px solid #000000;
+	background-color: #CCCCCC;
+	cursor: pointer;
+}
+.CuadrosFondoGris {
+	padding: 5px;
+	border: 1px solid #000000;
+	background-color: #CCCCCC;
+}
+.CuadrosFondoNaranja {
+	padding: 5px;
+	border: 1px solid #000000;
+	background-color: #FF9900;
+}
+.CuadrosFondoBlanco {
+	padding: 5px;
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+}	
+

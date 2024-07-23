@@ -1,0 +1,52 @@
+
+@page vertical { 
+	size: portrait; 
+	margin: 2.5cm;
+}
+
+@page horizontal { 
+	size: landscape; 
+	margin: 2cm; 
+}
+
+body {
+	color: #000000;
+	font-family: courier, monospace;  
+	font-size: 10pt; 
+	font-weight: normal;
+}
+table {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	width: 100%;
+	color: #000000;
+	font-family: courier, monospace;  
+	font-size: 10pt; 
+	font-weight: normal;	
+}
+tr {
+	margin: 0px;
+	padding: 0px;
+}
+td {
+	margin: 0px;
+	padding: 0px;
+	text-align: justify;
+}
+hr {
+	border: none;
+	color: gray;
+	background-color: gray;
+	height: 1px;
+	margin: 0px;
+	margin-bottom: 2px;
+}
+hr.doble {
+	border: none;
+	color: gray;
+	background-color: gray;
+	height: 2px;
+	margin: 0px;
+	margin-bottom: 2px;
+}

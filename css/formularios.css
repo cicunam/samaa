@@ -1,0 +1,570 @@
+/* 
+	CREA: ARAM PICHARDO
+	MODIFICADO: ARAM PICHARDO
+	FECHA CREA: 01/01/2010
+	FECHA ULTIMA MOD: 05/05/2024
+	NOTAS: Estilos para las formas telegrámicas
+*/
+
+/* ESTILOS AL DESPLEGAR LA FT */
+
+.menuformulario {
+	width: 20%;
+	vertical-align: top;
+	padding-left: 5px;
+}
+
+.formulario {
+	width: 80%;
+	padding-left: 55px;
+	vertical-align: top;
+}
+
+.datos {
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	/*background-color: #EEEEEE;*/
+	/*border: 1pt solid #BBBBBB;*/
+	margin: 0 0 2px 0;
+	padding: 0px;
+}
+.datos100 {
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	/*background-color: #EEEEEE;*/
+	/*border: 1pt solid #BBBBBB;*/
+	margin: 0 0 2px 0;
+	padding: 0px;
+	width: 100%;
+	text-indent: 0; /* Necesario para IE */
+}
+.datosJQ {
+	font-family: sans-serif;
+	font-size: 11pt;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	/*background-color: #EEEEEE;*/
+	/*border: 1pt solid #BBBBBB;*/
+	margin: 0 0 2px 0;
+	padding: 0px;
+}
+.datosJQ100 {
+	font-family: sans-serif;
+	font-size: 11pt;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	/*background-color: #EEEEEE;*/
+	/*border: 1pt solid #BBBBBB;*/
+	margin: 0 0 2px 0;
+	padding: 0px;
+	width: 100%;
+	text-indent: 0; /* Necesario para IE */
+}
+input[type="text"], textarea, select {
+	/*background-color: #FFFFFF;*/
+	border: 1pt solid #BBBBBB;
+}
+
+.cuadros {
+	border: 1px solid #BBBBBB;
+	padding: 2px 5px 2px 5px;
+	margin-bottom: 10px;
+}
+
+.cuadrosFormularios {
+	border: 1px solid #BBBBBB;
+	padding: 2px 5px 2px 5px;
+	margin-bottom: 10px;
+	width: 660px;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.cuadrosDatosAcademico {
+	border: 1px solid #BBBBBB;
+	padding: 2px 5px 2px 5px;
+	margin:0px 0px 5px 15px;
+	width: 98%;	
+	border-radius: 5px 5px 5px 5px;
+}
+
+.divPdfCons {
+	width:80px;
+	height:55px;	
+	padding:5px;
+	background-color:#FFFFDF;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.divPdfGaceta {
+	width:120px;
+	position:absolute;
+	left:750px;
+	/*top:10px;*/
+	padding:5px;
+	background-color:#FFFFDF;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.divPdfGacetaCaaa {
+	width:120px;
+	position:absolute;
+	left:750px;
+	/*top:472px;*/
+	padding:5px;
+	background-color:#FFFFDF;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.divPdfGacetaPleno {
+	width:120px;
+	position:absolute;
+	left:750px;
+	/*top:525px; */
+	padding:5px;
+	background-color:#FFFFDF;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.divLigaAsuntosCaaa {
+	width:120px;
+	padding:5px;
+	background-color:#FFFFDF;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.divPlazaDgpo {
+	width:175px;
+	position:absolute;
+	left:5px;
+	/*top:10px;*/
+	padding:5px;
+	background-color:#FFFFDF;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.divConsultaEpa {
+	width:100px;
+	padding:5px;
+	text-align: center;
+	background-color:#FBAC01; /*#F0CA02*/
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-radius: 5px;
+}
+
+.divInformacionAcad {
+	width:90%;
+	height:10px;
+	cursor:pointer;	
+	padding:5px;
+	background-color:#E6F2FF;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-radius: 6px;
+	text-align:center;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:bold;
+}
+
+.divSolicitudesTramite {
+	width:75%;
+	height:10px;
+	/*cursor:pointer;*/
+	padding:5px;
+	background-color:#FFC;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+	border-radius: 6px;
+	text-align:center;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:bold;
+}
+.cuadrosMovCanMod {
+	border: 1px solid #BBBBBB;
+	padding: 2px 5px 2px 5px;
+	margin-bottom: 10px;
+	width: 90%;
+	background-color:#FFFFCC;
+}
+
+.CuadrosBotonGrisMenu {
+	padding-left: 5px;
+	border: 1px solid #CCCCCC;
+	background-color: #CCCCCC;
+	cursor:pointer;
+}
+.CuadrosFondoNaranja {
+	padding: 5px;
+	border: 1px solid #000000;
+	background-color: #FF9900;
+}
+.linea {
+	width: 100%;
+	height: 3px;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	border-bottom-color: #990000;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-bottom: 3px; 
+}
+.linea_gris {
+	width: 100%;
+	height: 3px;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	border-bottom-color: #BBBBBB;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-bottom: 3px;
+}
+.linea_cintillo {
+	width: 100%;
+	height: 4px;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	border-bottom-color: #BBBBBB;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-bottom: 4px;
+}
+.linea_menu {
+	left: 0px;
+	width: 95%;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	border-bottom-color: #990000;
+	border-bottom-style: solid;
+	border-bottom-width: thin; 
+}
+.linea_menu_alta {
+	left: 0px;
+	width: 95%;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	border-bottom-color: #990000;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	margin-top: 5px; 
+}
+.botones {
+	border-width: thin;
+	border-style: double;
+	border-color: #FFFFFF;
+	font-family:  sans-serif;
+	font-size: 7pt;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	background-color: #CCCCCC;
+	color: #990000;
+	width: 95%;
+	text-align: center;
+	cursor: pointer;
+	}
+
+.botones:hover {
+	background-color: #DFDFDF;
+}
+	
+[disabled] {
+	/*border: 2px outset ButtonFace;*/
+	color: #999999;
+	cursor: inherit;
+}
+	
+.botonesSel {
+	border-width: thin;
+	border-style: double;
+	border-color: #CCCCCC;
+	font-family:  sans-serif;
+	font-size: 7pt;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	background-color: #FFFFFF;
+	color: #990000;
+	width: 95%;
+	text-align: center;
+	cursor: pointer;
+	}	
+	
+.botonesStandar {
+	margin: 0px;
+	padding: 0px;
+	border-width: thin;
+	border-style: double;
+	border-color: #CCCCCC;
+	font-family:  sans-serif;
+	font-size: 7pt;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	background-color: #CCCCCC;
+	color: #990000;
+	width: 150px;
+	height: 14px;
+	cursor: pointer;	
+}
+
+.botonesStandar:hover {
+	background-color: #DFDFDF;
+}
+
+.botonesPequenio {
+	border-width: thin;
+	border-style: double;
+	border-color: #CCCCCC;
+	font-family:  sans-serif;
+	font-size: 6pt;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	background-color: #CCCCCC;
+	color: #990000;
+	width: 15px;
+	height: 15px;
+}
+
+.textos {
+	font-family:  sans-serif;
+	font-size: 9px; 
+	color: #333333; 
+	font-weight: bold;
+}
+
+.DatosTexto {
+	font-family:  sans-serif;
+	font-size: 9px; 
+	color: #333333; 
+}
+
+.Resalta {
+	font-family:  sans-serif; 
+	font-size: 10px; 
+	color: #990000; 
+	font-weight: bold;
+}
+
+.Alertas {
+	font-family:  sans-serif; 
+	font-size: 10px; 
+	color: #FF0000; 
+	font-weight: bold;
+}
+
+.AlertasB {
+	font-family:  sans-serif; 
+	font-size: 10px; 
+	color: #FF0000; 
+}
+.MenusOpc {
+	font-family:  sans-serif; 
+	font-size: 10px; 
+	color: #990000; 
+}
+
+span {
+	margin: 0;
+	padding: 0;
+}
+
+.CursosRegistro {
+	width:572px;
+	cursor:pointer;
+}
+.CursosRegistro:hover {
+	background-color: #FFFF00;
+	width:572px;
+}
+
+hr {
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	border-bottom-color: #CCCCCC;
+	border-bottom-style: solid;
+	border-bottom-width: 1px; 
+}
+
+#MenuLateral {
+	width: 160px;
+	height: 1000px;
+	overflow-x: visible;
+	overflow-y: visible;
+}
+.EmergenteArchivo {
+	position: absolute;
+	z-index: 10;
+}
+
+img.icono {
+	margin: 0px; 
+	border: none;
+	cursor: pointer;
+}
+
+td.etq {
+	width: 30%;
+	vertical-align: top;
+}
+
+td.txt {
+	width: 70%;
+	vertical-align: top;
+}
+
+#ListaMovimientos {
+	height: 100px;
+}
+
+
+/******************************************** 
+ * ESTILOS AL IMPRIMIR LA FORMA TELEGRÁMICA *
+ ********************************************/
+
+@media print {
+	
+	body {
+		margin: auto;
+		padding: 0px;
+		font-size: 10pt;
+		/*
+		zoom: 50%;
+		-webkit-transform: scale(.5,.5); 
+   		-moz-transform: scale(.5,.5);
+   		*/
+   		
+   		width: 100%;
+	}
+	
+	table {
+	
+		width: 100%;
+	
+	}
+
+	hr {
+		border-bottom-color: #000000;
+	}
+
+	input[type=checkbox], input[type=radio] {
+		margin: 0px;
+		padding: 0px;
+		border: none;
+		height: 20px;
+		vertical-align: middle;
+	}
+	
+	textarea {
+		border-style: none;
+	}
+	
+	.formulario {
+	
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	
+	}
+	
+	#MenuLateral {
+		width: 0px;
+		display: none;
+	}
+		
+	#DatosSTCTIC {
+		display: none;
+	}
+	
+	.NoImprimir {
+		display: none;
+	}
+	
+	.cintillo {
+		display: none;
+	}
+	
+	.datos {
+		font-family: sans-serif;
+		font-size: 10pt;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		background-color: #FFFFFF;
+		border-style: none;
+		margin: 0 0 2px 0;
+		padding: 0px;
+	}
+	.datos100 {
+		font-family: sans-serif;
+		font-size: 10pt;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		background-color: #FFFFFF;
+		border-style: none;
+		margin: 0 0 2px 0;
+		padding: 0px;
+		width: 100%;
+	}
+	.cuadros {
+		border: 1px solid #000000;
+		width: 1085px;
+	}
+
+	.cuadrosFormularios {
+		border: 1px solid #000000;
+		width: 1085px;
+	}	
+	td.etq {
+		width: 35%;
+		vertical-align: top;
+	}
+	
+	td.txt {
+		width: 65%;
+		vertical-align: top;
+	}
+}

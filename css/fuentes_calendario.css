@@ -1,0 +1,35 @@
+/* ESTILOS DE FUENTES */
+
+/* FUENTES PARA EL CALENDARIO DE SESIONES */
+.ArialNarrow20 {
+	font-family: "Arial Narrow";
+	font-size: 16pt;
+	color: #000000;
+	font-style:inherit;	
+}
+
+.ArialNarrow12 {
+	font-family: "Arial Narrow";
+	font-size: 12pt;
+	color: #000000;
+	font-style: italic;
+}
+.ArialNarrow10N {
+	font-family: "Arial Narrow";
+	font-size: 10pt;
+	color: #000000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.ArialNarrow10 {
+	font-family: "Arial Narrow";
+	font-size: 9pt;
+	color: #000000;
+}
+
+.ArialNarrow8 {
+	font-family: "Arial Narrow";
+	font-size: 8pt;
+	color: #000000;
+}

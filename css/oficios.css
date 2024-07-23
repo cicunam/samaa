@@ -1,0 +1,374 @@
+/*
+@page { 
+	size: US-letter portrait;
+	margin-top: 3cm; 
+	margin-right:2.5cm; 
+	margin-bottom:2.5cm; 
+	margin-left:3cm;
+}
+*/
+
+@page { 
+size: 21.59cm 27.94cm;
+margin: 1.75cm 3cm 0.85cm 3cm;
+}
+
+/* Include header and footer margins in page definition */
+/*
+@page Arriba {
+	height: 15cm;
+	background-color: yellow;	
+}
+*/
+
+body, table, p {
+	color: #000000;
+	font-family: sans-serif;
+	font-weight: normal;
+	/*margin: 1.75cm 3cm 0.85cm 3cm;*/
+	}
+
+/*
+@page sArriba {
+	size: 16cm 13cm; 
+}
+
+@page sAbajo {
+	size: 16cm 9.5cm; 
+}
+
+.Arriba {
+	page: sArriba;
+}
+
+.Abajo {
+	page: sAbajo;
+}
+*/
+/*
+.Arriba {
+	display: block; 
+	height: 13cm;
+	width: 100%;
+	background-color: yellow;
+}
+
+.Abajo {
+	display: block; 
+	height: 9.5cm;
+	width: 100%;
+	background-color: green;
+}
+*/
+.OficioAsunto {
+	width: 100%;
+	font-size: 10pt;
+	text-align: right; 
+}
+.Academico {
+	width: 100%;
+	font-size: 10pt;
+	text-align: left;
+}
+.Parrafo {
+	width: 100%;
+	font-size: 12pt; 
+	text-align: justify;
+}
+.Firma {
+	width: 100%;
+	font-size: 10pt;
+	text-align: left;
+}
+.Pie {
+	width: 100%;
+	font-size: 8pt; 
+	text-align: left;
+}
+
+/* Listado de licencias y comisiones */ 
+
+table {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	width: 100%;
+	color: #000000;
+	font-family: monospace;
+	font-size: 6pt; 
+	font-weight: normal;
+	page: landscape;	
+}
+tr,td {
+	margin: 0px;
+	padding: 0px;
+	font-size: 6pt;
+}
+
+.SaltoPagina { 
+		page-break-after:always; 
+	}
+
+@media print {
+	.SaltoPagina { 
+		page-break-after:always; 
+	}
+}
+
+/* ESTILOS MSWORD 27/07/2016 OJO ES PARA PRUEBA */
+
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;}
+
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:ES-TRAD;}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:10.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:90%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	tab-stops:43.2pt 79.2pt 115.2pt 151.2pt 187.2pt 223.2pt 259.2pt 295.2pt 331.2pt;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-font-kerning:0pt;
+	mso-ansi-language:ES-TRAD;
+	font-weight:normal;}
+h2
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:1.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:90%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	tab-stops:43.2pt 79.2pt 115.2pt 151.2pt 187.2pt 223.2pt 259.2pt 295.2pt 331.2pt;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:ES-TRAD;
+	font-weight:normal;}
+h3
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:0cm;
+	margin-right:-8.75pt;
+	margin-bottom:0cm;
+	margin-left:10.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:90%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	tab-stops:43.2pt 79.2pt 115.2pt 151.2pt 187.2pt 223.2pt 259.2pt 333.15pt;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-ansi-language:ES-TRAD;
+	font-weight:normal;}
+h4
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:10.0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:90%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	tab-stops:43.2pt 79.2pt 115.2pt 151.2pt 187.2pt 223.2pt 259.2pt 12.0cm;
+	font-size:13.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:ES-TRAD;
+	font-weight:normal;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-noshow:yes;
+	mso-style-unhide:no;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:297.7pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:90%;
+	mso-pagination:widow-orphan;
+	tab-stops:43.2pt 79.2pt 115.2pt 151.2pt 187.2pt 223.2pt 259.2pt 295.2pt 337.35pt;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:ES-TRAD;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-noshow:yes;
+	mso-style-unhide:no;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:10.0pt;
+	font-family:"Tahoma",sans-serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:ES-TRAD;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;}
+@page WordSection1
+	{
+		mso-page-orientation: landscape;		
+		size: 21.59cm 27.94cm;
+		margin:1.27cm  2.5cm 0.85cm 3cm;
+		mso-header-margin:36.0pt;
+		mso-footer-margin:36.0pt;
+		/*mso-line-numbers-count-by:1;*/
+		mso-paper-source:0;
+	}
+	div.WordSection1
+		{page:WordSection1;}
+	 /* List Definitions */
+ @list l0
+	{mso-list-id:96021955;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1603785552 134873103 134873113 134873115 134873103 134873113 134873115 134873103 134873113 134873115;}
+@list l0:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l1
+	{mso-list-id:734741628;
+	mso-list-type:hybrid;
+	mso-list-template-ids:455613632 134873103 134873113 134873115 134873103 134873113 134873115 134873103 134873113 134873115;}
+@list l1:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}

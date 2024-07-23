@@ -1,0 +1,631 @@
+<!--- CREADO: ARAM PICHARDO --->
+<!--- EDITO: ARAM PICHARDO --->
+<!--- FECHA CREA: 12/10/2009 --->
+<!--- FECHA ÚLTIMA MOD.: 13/03/2019 --->
+
+/* FUENTES FORMULARIOS */
+
+.FormularioTexto {
+	font-family: sans-serif;
+	font-size: 9.5px;
+	color: #333333;
+	font-weight: bold;
+}
+
+.AgregarRegTexto {
+	font-family: Arial;
+	font-size: 9.5px;
+	color:#990000;
+	font-weight: bold;
+	font-style:italic;
+}
+
+
+
+/* ESTILOS DE FUENTES */
+
+.Sans9Ne {
+	font-family: sans-serif;  
+	font-size: 9px; 
+	color: #000000; 
+	font-weight: normal;
+}
+.Sans9NeNe {
+	font-family: sans-serif;  
+	font-size: 9px; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Sans9BlNe {
+	font-family: sans-serif;  
+	font-size: 9px; 
+	color: #FFFFFF; 
+	font-weight: bold;
+}
+.Sans9Gr {
+	font-family: sans-serif;
+	font-size: 9px;
+	color: #333333;
+	font-weight: normal;
+}
+.Sans9GrNe {
+	font-family: sans-serif;
+	font-size: 9px;
+	color: #333333;
+	font-weight: bold;
+}
+.Sans9Vi {
+	font-family: sans-serif;
+	font-size: 9px;
+	color: #990000;
+	font-weight: normal;
+}
+.Sans9ViNe {
+	font-family: sans-serif;
+	font-size: 9px;
+	color: #990000;
+	font-weight: bold;
+}
+.Sans9Na {
+	font-family: sans-serif;
+	font-size: 9px;
+	color: #F60;
+	font-weight: normal;
+}
+.Sans9NaNe {
+	font-family: sans-serif;
+	font-size: 9px;
+	color: #F60;
+	font-weight: bold;
+}
+.Sans10Vi {
+	font-family: sans-serif;  
+	font-size: 10px; 
+	color: #990000; 
+	font-weight: normal;
+}
+.Sans10ViNe {
+	font-family: sans-serif;  
+	font-size: 10px; 
+	color: #990000; 
+	font-weight: bold;
+}
+.Sans10Ne {
+	font-family: sans-serif;  
+	font-size: 10px; 
+	color: #000000; 
+	font-weight: normal;
+}
+.Sans10NeNe {
+	font-family: sans-serif;  
+	font-size: 10px; 
+	color: #000000;
+	font-weight: bold;
+}
+.Sans10Gr {
+	font-family: sans-serif;
+	font-size: 10px;
+	color: #333333;
+	font-weight: normal;
+}
+.Sans10GrNe {
+	font-family: sans-serif;
+	font-size: 10px;
+	color: #333333;
+	font-weight: bold;
+}
+.Sans10Vi {
+	font-family: sans-serif;  
+	font-size: 10px; 
+	color: #990000;
+	font-weight: normal;
+}
+.Sans11GrNe {
+	font-family: sans-serif;
+	font-size: 11px;
+	color: #333333;
+	font-weight: bold;
+}
+.Sans11NeNe {
+	font-family: sans-serif;
+	font-size: 11px; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Sans11Bl {
+	font-family: sans-serif; 
+	font-size: 11px; 
+	color: #FFFFFF;
+	font-weight: normal;
+}
+.Sans11Ne {
+	font-family: sans-serif;  
+	font-size: 11px; 
+	color: #000000; 
+	font-weight: normal;
+}
+.Sans11NeNe {
+	font-family: sans-serif; 
+	font-size: 11px; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Sans11BlNe {
+	font-family: sans-serif;  
+	font-size: 11px; 
+	color: #FFFFFF; 
+	font-weight: bold;
+}
+.Sans11ViNe {
+	font-family: sans-serif;  
+	font-size: 11px; 
+	color: #990000; 
+	font-weight: bold;
+}
+.Sans12BlNe {
+	font-family: sans-serif;  
+	font-size: 12px; 
+	color: #FFFFFF; 
+	font-weight: bold;
+}
+.Sans12Ne {
+	font-family: sans-serif;  
+	font-size: 12px; 
+	color: #000000; 
+	font-weight: normal;
+}
+.Sans12NeNe {
+	font-family: sans-serif;  
+	font-size: 12px; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Sans12ViNe {
+	font-family: sans-serif;  
+	font-size: 12px; 
+	color: #990000; 
+	font-weight: bold;
+}
+.Sans12Gr {
+	font-family: sans-serif;
+	font-size: 12px;
+	color: #333333;
+	font-weight: normal;
+}
+.Sans12GrNe {
+	font-family: sans-serif;
+	font-size: 12px;
+	color: #333333;
+	font-weight: bold;
+}	
+.Sans14Am {
+	font-family: sans-serif;
+	font-size: 14px; 
+	color: #FFCC00; 
+	font-weight: bold;
+}
+.Sans14BlNe {
+	font-family: sans-serif; 
+	font-size: 14px; 
+	color: #FFFFFF; 
+	font-weight: bold;
+}
+.Sans14NeNe {
+	font-family: sans-serif; 
+	font-size: 14px; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Sans16BlNe {
+	font-family: sans-serif;
+	font-size: 16px; 
+	color: #FFFFFF; 
+	font-weight: bold;
+}
+
+.Sans18ViNe {
+	font-family:  sans-serif; 
+	font-size: 18px; 
+	color: #990000; 
+	font-weight: bold;
+}
+
+/* Fuentes para los listados de asuntos para la CAAA y el pleno del CTIC */
+
+.Mono8Ne {
+	font-family: monospace;  
+	font-size: 8pt; 
+	color: #000000; 
+	font-weight: normal;
+}
+.Mono8NeNe {
+	font-family: monospace;  
+	font-size: 8pt; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Mono9Ne {
+	font-family: monospace;  
+	font-size: 9pt; 
+	color: #000000; 
+	font-weight: normal;
+}
+.Mono9NeNe {
+	font-family: monospace;  
+	font-size: 9pt; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Mono10Ne {
+	font-family: monospace;  
+	font-size: 10pt; 
+	color: #000000; 
+	font-weight: normal;
+}
+.Mono10NeNe {
+	font-family: monospace;  
+	font-size: 10pt; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Mono12Ne {
+	font-family: monospace;  
+	font-size: 12pt; 
+	color: #000000; 
+	font-weight: normal;
+}
+.Mono12NeNe {
+	font-family: monospace;  
+	font-size: 12pt; 
+	color: #000000; 
+	font-weight: bold;
+}
+.ArialNarrow20 {
+	font-family: "Arial Narrow";
+	font-size: 20pt;
+	color: #000000;
+	font-style:inherit;	
+}
+.ArialNarrow16 {
+	font-family: "Arial Narrow";
+	font-size: 16pt;
+	color: #000000;
+	font-style: italic;
+}
+.ArialNarrow11 {
+	font-family: "Arial Narrow";
+	font-size: 12pt;
+	color: #000000;
+}
+
+/* FUENTES DEL CISIC */
+
+.Arial16Blanca {
+	font-family: arial, sans-serif;
+	font-size: 16px; 
+	color: #ffffff; 
+}
+.Arial16BlancaN {
+	font-family: arial, sans-serif;
+	font-size: 16px; 
+	color: #ffffff; 
+	font-weight: bold;
+}
+.Arial12Vino {
+	font-family: arial, sans-serif; 
+	font-size: 13px; 
+	color: #990000; 
+}
+.Arial12VinoN {
+	font-family: arial, sans-serif; 
+	font-size: 13px; 
+	color: #990000; 
+	font-weight: bold;
+}
+.Arial12 {
+	font-family: arial, sans-serif;
+	font-size: 12px; 
+	color: #ffffff; 
+	font-weight: bold;
+}
+.Arial12N {
+	font-family: arial, sans-serif;
+	font-size: 12px; 
+	color: #FFFFFF; 
+	font-weight: bold;
+}
+.Arial12Blanca {
+	font-family: arial, sans-serif; 
+	font-size: 12px; 
+	color: #ffffff; 
+}
+.Arial12BlancaN {
+	font-family: arial, sans-serif; 
+	font-size: 12px; 
+	color: #ffffff; 
+	font-weight: bold;
+}
+.Arial12Negra {
+	font-family: arial, sans-serif; 
+	font-size: 12px; 
+	color: #000000; 
+}
+.Arial12NegraN {
+	font-family: arial, sans-serif; 
+	font-size: 12px; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Arial12Gris {
+	font-family: arial, sans-serif; 
+	font-size: 12px; 
+	color: #999; 
+}
+.Arial12GrisN {
+	font-family: arial, sans-serif; 
+	font-size: 12px; 
+	color: #999999; 
+	font-weight: bold;
+}
+.Arial13GrisN {
+	font-family: arial, sans-serif; 
+	font-size: 13px; 
+	color: #999999; 
+	font-weight: bold;
+}
+.Arial14GrisN {
+	font-family: arial, sans-serif; 
+	font-size: 14px; 
+	color: #999999; 
+	font-weight: bold;
+}
+.Arial10Vino {
+	font-family: arial, sans-serif; 
+	font-size: 11px; 
+	color: #990000; 
+}
+.Arial10VinoN {
+	font-family: arial, sans-serif; 
+	font-size: 11px; 
+	color: #990000; 
+	font-weight: bold;
+}
+.Arial14Vino {
+	font-family: arial, sans-serif; 
+	font-size: 14px; 
+	color: #990000; 
+}
+.Arial14VinoN {
+	font-family: arial, sans-serif; 
+	font-size: 14px; 
+	color: #990000; 
+	font-weight: bold;
+}
+.Arial15VinoN {
+	font-family: arial, sans-serif; 
+	font-size: 15px; 
+	color: #990000; 
+	font-weight: bold;
+}
+.Arial10Negra {
+	font-family: arial, sans-serif; 
+	font-size: 11px; 
+	color: #000000; 
+}
+.Arial10NegraN {
+	font-family: arial, sans-serif; 
+	font-size: 11px; 
+	color: #000000; 
+	font-weight: bold;
+}
+.Arial10roja {
+	font-family: arial, sans-serif; 
+	font-size: 11px; 
+	color: #ff0000; 
+}
+.Arial10rojaN {
+	font-family: arial, sans-serif; 
+	font-size: 11px; 
+	color: #ff0000;
+	font-weight: bold;
+}
+.Arial11BlancaN {
+	font-family: arial, sans-serif; 
+	font-size: 11px; 
+	color: #ffffff; 
+	font-weight: bold;
+}
+
+/* FUENTES PARA EL CALENDARIO DE SESIONES */
+.ArialNarrow20 {
+	font-family: "Arial Narrow";
+	font-size: 20pt;
+	color: #000000;
+	font-style:inherit;	
+}
+.ArialNarrow16 {
+	font-family: "Arial Narrow";
+	font-size: 16pt;
+	color: #000000;
+	font-style: italic;
+}
+.ArialNarrow11 {
+	font-family: "Arial Narrow";
+	font-size: 12pt;
+	color: #000000;
+}
+
+/* INICIA ESTILOS AL IMPRIMIR LA FORMA */
+
+@media print {
+	
+	body {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.Sans9Ne {
+		font-family: sans-serif;  
+		font-size: 11pt; 
+		color: #000000; 
+		font-weight: normal;
+	}
+	.Sans9Gr {
+		font-family: sans-serif;
+		font-size: 11pt;
+		color: #333333;
+		font-weight: normal;
+	}
+	.Sans9GrNe {
+		font-family: sans-serif;
+		font-size: 11pt;
+		color: #333333;
+		font-weight: bold;
+	}
+	.Sans9Vi {
+		font-family: sans-serif;
+		font-size: 11pt;
+		color: #990000;
+		font-weight: normal;
+	}
+	.Sans9ViNe {
+		font-family: sans-serif;
+		font-size: 11pt;
+		color: #990000;
+		font-weight: bold;
+	}
+	.Sans10Vi {
+		font-family: sans-serif;  
+		font-size: 12pt; 
+		color: #990000; 
+		font-weight: normal;
+	}
+	.Sans10ViNe {
+		font-family: sans-serif;  
+		font-size: 12pt; 
+		color: #990000; 
+		font-weight: bold;
+	}
+	.Sans10Ne {
+		font-family: sans-serif;  
+		font-size: 12pt; 
+		color: #000000; 
+		font-weight: normal;
+	}
+	.Sans10NeNe {
+		font-family: sans-serif;  
+		font-size: 12pt; 
+		color: #000000;
+		font-weight: bold;
+	}
+	.Sans10Gr {
+		font-family: sans-serif;
+		font-size: 12pt;
+		color: #333333;
+		font-weight: normal;
+	}
+	.Sans10Vi {
+		font-family: sans-serif;  
+		font-size: 12pt; 
+		color: #990000;
+		font-weight: normal;
+	}
+	.Sans11GrNe {
+		font-family: sans-serif;
+		font-size: 13pt;
+		color: #333333;
+		font-weight: bold;
+	}
+	.Sans11NeNe {
+		font-family: sans-serif;
+		font-size: 13pt; 
+		color: #000000; 
+		font-weight: bold;
+	}
+	.Sans11Bl {
+		font-family: sans-serif; 
+		font-size: 13pt; 
+		color: #FFFFFF;
+		font-weight: normal;
+	}
+	.Sans11Ne {
+		font-family: sans-serif;  
+		font-size: 13pt; 
+		color: #000000; 
+		font-weight: normal;
+	}
+	.Sans11NeNe {
+		font-family: sans-serif; 
+		font-size: 13pt; 
+		color: #000000; 
+		font-weight: bold;
+	}
+	.Sans11BlNe {
+		font-family: sans-serif;  
+		font-size: 13pt; 
+		color: #FFFFFF; 
+		font-weight: bold;
+	}
+	.Sans12BlNe {
+		font-family: sans-serif;  
+		font-size: 14pt; 
+		color: #FFFFFF; 
+		font-weight: bold;
+	}
+	.Sans12NeNe {
+		font-family: sans-serif;  
+		font-size: 14pt; 
+		color: #000000; 
+		font-weight: bold;
+	}
+	.Sans12ViNe {
+		font-family: sans-serif;  
+		font-size: 14pt; 
+		color: #990000; 
+		font-weight: bold;
+	}
+	.Sans12Gr {
+		font-family: sans-serif;
+		font-size: 14pt;
+		color: #333333;
+		font-weight: normal;
+	}
+	.Sans12GrNe {
+		font-family: sans-serif;
+		font-size: 14pt;
+		color: #333333;
+		font-weight: bold;
+	}	
+	.Sans14Am {
+		font-family: sans-serif;
+		font-size: 16pt; 
+		color: #FFCC00; 
+		font-weight: bold;
+	}
+	.Sans14BlNe {
+		font-family: sans-serif; 
+		font-size: 16pt; 
+		color: #FFFFFF; 
+		font-weight: bold;
+	}
+	.Sans14NeNe {
+		font-family: sans-serif; 
+		font-size: 16pt; 
+		color: #000000; 
+		font-weight: bold;
+	}
+	.Sans16BlNe {
+		font-family: sans-serif;
+		font-size: 16pt; 
+		color: #FFFFFF; 
+		font-weight: bold;
+	}
+	.Sans18ViNe {
+		font-family:  sans-serif; 
+		font-size: 20pt; 
+		color: #990000; 
+		font-weight: bold;
+	}
+}
+
+/* TERMINA ESTILOS AL IMPRIMIR LA FORMA */
